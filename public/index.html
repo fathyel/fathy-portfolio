@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fathy Elhadidy — Web Developer</title>
-<meta name="description" content="Websites small businesses run themselves. Fathy Elhadidy builds sites with their own admin panel for shops, nonprofits and community groups in Philadelphia.">
+<meta name="description" content="Websites small businesses run themselves. Fathy Elhadidy builds sites for shops, nonprofits and community groups in Philadelphia, with optional admin panels, online payments, and monthly hosting and maintenance.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,7 +146,7 @@ h3 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 3vw, 
 .toggle button { font: 500 13px var(--body); border: 0; background: none; color: var(--muted); padding: 5px 13px; border-radius: 999px; cursor: pointer; }
 .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
 
-/* included */
+/* services */
 .band { background: var(--surface); border-block: 1px solid var(--line); }
 .features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 900px) { .features { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -155,6 +155,7 @@ h3 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 3vw, 
 .feature .kind { color: var(--accent); }
 .feature strong { font-family: var(--display); font-size: 20px; letter-spacing: -0.01em; }
 .feature span { color: var(--muted); font-size: 15px; }
+.feature.monthly { background: var(--accent-soft); border-color: transparent; }
 .custom { margin-top: 16px; padding: 24px; border-radius: var(--radius); background: var(--accent-soft); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
 .custom div { display: grid; gap: 4px; max-width: 64ch; }
 .custom strong { font-family: var(--display); font-size: 21px; }
@@ -225,7 +226,7 @@ footer a:hover { color: var(--ink); }
     <a class="logo" href="#top"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" class="m-bg"/><g class="m-fg"><rect x="13" y="15" width="38" height="7" rx="1.5"/><rect x="13" y="15" width="7" height="34" rx="1.5"/><rect x="13" y="29" width="14" height="6.5" rx="1.5"/><rect x="34" y="15" width="7" height="34" rx="1.5"/><rect x="34" y="29" width="13" height="6.5" rx="1.5"/></g><rect x="34" y="42" width="17" height="7" rx="1.5" class="m-ac"/></svg><span>Fathy Elhadidy<b>.</b></span></a>
     <ul>
       <li><a href="#work">Work</a></li>
-      <li><a href="#included">What you get</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#side">Side project</a></li>
       <li><a class="btn primary small" href="#contact">Start a project</a></li>
     </ul>
@@ -237,7 +238,7 @@ footer a:hover { color: var(--ink); }
     <div>
       <div class="eyebrow">Web developer · Philadelphia</div>
       <h1>Websites that small businesses <em>run themselves.</em></h1>
-      <p class="lede">I build sites for shops, nonprofits and community groups. Each one comes with its own admin panel, so the owner can take bookings, payments and donations without calling a developer.</p>
+      <p class="lede">I build sites for shops, nonprofits and community groups. Start with the site you need. When you're ready, add an admin panel to take bookings, payments and donations yourself, without calling a developer.</p>
       <div class="ctas"><a class="btn primary" href="#contact">Start a project</a><a class="btn" href="#work">See the work</a></div>
       <div class="stack"><span>React</span><span>Next.js</span><span>Cloudflare</span><span>Stripe</span><span>Postgres</span></div>
     </div>
@@ -259,17 +260,18 @@ footer a:hover { color: var(--ink); }
   </div>
 </section>
 
-<section id="included" class="band">
+<section id="services" class="band">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Included</div>
-      <h2>What every site comes with.</h2>
+      <div class="eyebrow">Services</div>
+      <h2>Build what you need now. Add more later.</h2>
+      <p>Every project starts with a site that fits your business. Add these when you need them.</p>
     </div>
     <div class="features">
-      <div class="feature"><span class="kind">01</span><strong>Admin panel</strong><span>Edit content, manage orders and answer messages.</span></div>
-      <div class="feature"><span class="kind">02</span><strong>Online payments</strong><span>Stripe checkout, sales tax and refunds.</span></div>
-      <div class="feature"><span class="kind">03</span><strong>Email</strong><span>Confirmations and alerts go out on their own.</span></div>
-      <div class="feature"><span class="kind">04</span><strong>Cheap hosting</strong><span>Runs on Cloudflare, usually for a few dollars a month.</span></div>
+      <div class="feature"><span class="kind">Add-on</span><strong>Admin panel</strong><span>Edit content, manage orders and answer messages.</span></div>
+      <div class="feature"><span class="kind">Add-on</span><strong>Online payments</strong><span>Stripe checkout, sales tax and refunds.</span></div>
+      <div class="feature"><span class="kind">Add-on</span><strong>Automatic emails</strong><span>Confirmations and alerts go out on their own.</span></div>
+      <div class="feature monthly"><span class="kind">Monthly</span><strong>Hosting &amp; maintenance</strong><span>I host your site, keep it updated and secure, and make small changes for you.</span></div>
     </div>
     <div class="custom">
       <div>
@@ -328,6 +330,7 @@ footer a:hover { color: var(--ink); }
             <label><input type="radio" name="need" value="New website" checked><span>New website</span></label>
             <label><input type="radio" name="need" value="Redesign"><span>Redesign</span></label>
             <label><input type="radio" name="need" value="Admin panel or feature"><span>Admin panel or feature</span></label>
+            <label><input type="radio" name="need" value="Hosting &amp; maintenance"><span>Hosting &amp; maintenance</span></label>
             <label><input type="radio" name="need" value="Something else"><span>Something else</span></label>
           </div>
         </fieldset>
