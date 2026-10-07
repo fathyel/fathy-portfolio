@@ -1,14 +1,21 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "fathy-portfolio",
-  // Serves public/ as static files. Only /api/* runs the worker first —
-  // see src/worker.js.
+  // Serves public/ as static files, plus the contact form API in src/worker.js.
   "main": "src/worker.js",
   "compatibility_date": "2026-07-01",
+  "routes": [
+    { "pattern": "fathyelhadidy.com", "custom_domain": true },
+    { "pattern": "www.fathyelhadidy.com", "custom_domain": true }
+  ],
+  // Kept on so old links to the workers.dev address still redirect.
+  "workers_dev": true,
+  // The worker runs first on every request so it can redirect www and the
+  // old workers.dev address to fathyelhadidy.com — see src/worker.js.
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": true
   },
   // Contact form: at most 5 submissions per minute per IP.
   "ratelimits": [

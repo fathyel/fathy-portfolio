@@ -1,6 +1,9 @@
 /* Portfolio worker: static files from public/, plus POST /api/contact,
  * which emails project inquiries to CONTACT_TO_EMAIL through Resend. */
 
+// www and the old workers.dev address redirect here.
+const CANONICAL_HOST = "fathyelhadidy.com";
+
 const esc = s =>
   String(s ?? "")
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -14,6 +17,12 @@ const clean = (v, max) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.hostname !== CANONICAL_HOST && url.hostname !== "localhost" && url.hostname !== "127.0.0.1") {
+      url.hostname = CANONICAL_HOST;
+      url.protocol = "https:";
+      url.port = "";
+      return Response.redirect(url.toString(), 301);
+    }
     if (url.pathname === "/api/contact") {
       if (request.method !== "POST") return json({ ok: false, error: "Method not allowed." }, 405);
       return contact(request, env);

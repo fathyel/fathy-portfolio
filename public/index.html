@@ -6,12 +6,12 @@
 <title>Fathy Elhadidy — Web Developer</title>
 <meta name="description" content="Websites small businesses run themselves. Fathy Elhadidy builds sites for shops, nonprofits and community groups in Philadelphia, with optional admin panels, online payments, and monthly hosting and maintenance.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://fathy-portfolio.fathyelhadedy.workers.dev/">
+<link rel="canonical" href="https://fathyelhadidy.com/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fathy-portfolio.fathyelhadedy.workers.dev/">
+<meta property="og:url" content="https://fathyelhadidy.com/">
 <meta property="og:title" content="Fathy Elhadidy — Web Developer">
 <meta property="og:description" content="Websites small businesses run themselves. Sites, admin panels, and monthly hosting and maintenance for shops, nonprofits and community groups in Philadelphia.">
-<meta property="og:image" content="https://fathy-portfolio.fathyelhadedy.workers.dev/og.png">
+<meta property="og:image" content="https://fathyelhadidy.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Fathy Elhadidy — Websites that small businesses run themselves.">
@@ -63,21 +63,33 @@ a { color: inherit; }
 .nav.scrolled { border-bottom-color: var(--line); }
 .nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; height: 64px; }
 .logo { font-family: var(--display); font-weight: 800; font-size: 19px; letter-spacing: -0.02em; text-decoration: none; }
-.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
 .logo b { color: var(--accent); }
 .mark { width: 32px; height: 32px; flex: none; }
 .mark .m-bg { fill: var(--ink); } .mark .m-fg { fill: var(--bg); } .mark .m-ac { fill: var(--panel-accent); }
 .nav ul { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
 .nav ul a { text-decoration: none; color: var(--muted); }
 .nav ul a:hover { color: var(--ink); }
-@media (max-width: 640px) { .nav ul li:not(:last-child) { display: none; } }
+.nav-right { display: flex; align-items: center; gap: 26px; }
+.menu { display: none; width: 40px; height: 40px; padding: 0; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--ink); align-items: center; justify-content: center; cursor: pointer; }
+.menu svg { width: 18px; height: 18px; }
+.menu .x, .nav.open .menu .bars { display: none; }
+.nav.open .menu .x { display: block; }
+.nav .m-only { display: none; }
+@media (max-width: 640px) {
+  .nav-right { gap: 10px; }
+  .menu { display: inline-flex; }
+  .nav ul { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 4px 20px 12px; background: var(--bg); border-bottom: 1px solid var(--line); }
+  .nav.open ul { display: flex; }
+  .nav ul a { display: block; padding: 12px 0; font-size: 17px; color: var(--ink); }
+}
+@media (max-width: 420px) { .nav-right > .btn { display: none; } .nav .m-only { display: list-item; } }
 
 /* buttons */
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font: 600 15px var(--body); text-decoration: none; border: 1.5px solid var(--ink); color: var(--ink); background: none; cursor: pointer; transition: transform .15s, background .15s; }
+.btn { white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font: 600 15px var(--body); text-decoration: none; border: 1.5px solid var(--ink); color: var(--ink); background: none; cursor: pointer; transition: transform .15s, background .15s; }
 .btn:hover { transform: translateY(-1px); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .btn.small { padding: 8px 15px; font-size: 14px; }
-.nav ul a.btn { color: var(--accent-ink); }
 
 /* hero */
 .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 56px; align-items: center; padding-block: 72px 64px; }
@@ -111,16 +123,8 @@ h1 em { font-style: normal; color: var(--accent); }
 .show-admin .view.admin { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .view, .btn { transition: none; } }
 
-.site { grid-template-rows: auto 1fr auto; background: var(--tint); }
-.site .top { display: flex; justify-content: space-between; align-items: center; }
-.site .brand { font-family: var(--display); font-weight: 800; font-size: 13px; color: var(--tint-ink); }
-.site .links { display: flex; gap: 6px; }
-.site .links b { width: 22px; height: 5px; border-radius: 3px; background: var(--tint-ink); opacity: .35; }
-.site .heroblock { display: grid; align-content: center; gap: 8px; }
-.site .heroblock strong { font-family: var(--display); font-size: clamp(16px, 2.4vw, 26px); line-height: 1.08; color: var(--tint-ink); max-width: 14ch; letter-spacing: -0.02em; }
-.site .heroblock span { display: inline-block; width: max-content; font-size: 10px; font-weight: 600; padding: 5px 11px; border-radius: 999px; background: var(--tint-ink); color: var(--tint); }
-.site .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-.site .tiles b { height: 28px; border-radius: 5px; background: var(--tint-ink); opacity: .14; }
+.site { padding: 0; display: block; background: var(--tint); }
+.site img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
 .admin { grid-template-columns: 22% 1fr; background: var(--surface); padding: 0; gap: 0; }
 .admin .side { background: var(--chip); padding: 14px 10px; display: grid; align-content: start; gap: 8px; }
@@ -145,7 +149,7 @@ h3 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 3vw, 
 .cases { display: grid; gap: 72px; }
 .case { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
 .case:nth-child(even) .win-col { order: 2; }
-@media (max-width: 860px) { .case { grid-template-columns: 1fr; gap: 24px; } .case:nth-child(even) .win-col { order: 0; } }
+@media (max-width: 860px) { .case { grid-template-columns: minmax(0, 1fr); gap: 24px; } .case:nth-child(even) .win-col { order: 0; } }
 .case .meta { display: grid; gap: 14px; align-content: center; }
 .case .num { font-family: var(--mono); font-size: 13px; color: var(--accent); }
 .case .meta p { margin: 0; color: var(--muted); font-size: 17px; max-width: 44ch; }
@@ -157,6 +161,12 @@ h3 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 3vw, 
 .toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); }
 .toggle button { font: 500 13px var(--body); border: 0; background: none; color: var(--muted); padding: 5px 13px; border-radius: 999px; cursor: pointer; }
 .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.result { font-size: 15px; padding-left: 14px; border-left: 2px solid var(--accent); }
+.result strong { color: var(--accent); font-weight: 600; }
+.quote { margin: 4px 0 0; padding: 18px 20px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); display: grid; gap: 10px; }
+.quote p { margin: 0; font-size: 16px; color: var(--ink); max-width: none; }
+.quote p::before { content: "“"; } .quote p::after { content: "”"; }
+.quote cite { font-style: normal; font-size: 13px; color: var(--muted); font-family: var(--mono); }
 
 /* services */
 .band { background: var(--surface); border-block: 1px solid var(--line); }
@@ -186,8 +196,7 @@ h3 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 3vw, 
 .about { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
 @media (max-width: 760px) { .about { grid-template-columns: 1fr; } }
 .portrait { width: clamp(140px, 22vw, 240px); aspect-ratio: 1; border-radius: 28px; overflow: hidden; background: var(--ink); display: grid; place-items: center; }
-.portrait img { width: 100%; height: 100%; object-fit: cover; }
-.portrait .mark { width: 62%; height: 62%; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
 .about-body { display: grid; gap: 16px; max-width: 62ch; }
 .about-body p { margin: 0; font-size: 18px; color: var(--muted); }
 .about-body p:first-of-type { color: var(--ink); font-size: 21px; line-height: 1.45; }
@@ -269,13 +278,18 @@ footer a:hover { color: var(--ink); }
 <nav class="nav" id="nav">
   <div class="wrap">
     <a class="logo" href="#top"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" class="m-bg"/><g class="m-fg"><rect x="13" y="15" width="38" height="7" rx="1.5"/><rect x="13" y="15" width="7" height="34" rx="1.5"/><rect x="13" y="29" width="14" height="6.5" rx="1.5"/><rect x="34" y="15" width="7" height="34" rx="1.5"/><rect x="34" y="29" width="13" height="6.5" rx="1.5"/></g><rect x="34" y="42" width="17" height="7" rx="1.5" class="m-ac"/></svg><span>Fathy Elhadidy<b>.</b></span></a>
-    <ul>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a class="btn primary small" href="#contact">Start a project</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul id="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li class="m-only"><a href="#contact">Start a project</a></li>
+      </ul>
+      <a class="btn primary small" href="#contact">Start a project</a>
+      <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
   </div>
 </nav>
 
@@ -311,7 +325,7 @@ footer a:hover { color: var(--ink); }
     <div class="sec-head">
       <div class="eyebrow">Services</div>
       <h2>Build what you need now. Add more later.</h2>
-      <p>Every project starts with a site that fits your business. Add these when you need them.</p>
+      <p>Sites start at $500. Every project starts with a site that fits your business. Add these when you need them.</p>
     </div>
     <div class="features">
       <div class="feature"><span class="kind">Add-on</span><strong>Admin panel</strong><span>Edit content, manage orders and answer messages.</span></div>
@@ -347,7 +361,7 @@ footer a:hover { color: var(--ink); }
 
 <section id="about" class="band">
   <div class="wrap about">
-    <div class="portrait"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" class="m-bg"/><g class="m-fg"><rect x="13" y="15" width="38" height="7" rx="1.5"/><rect x="13" y="15" width="7" height="34" rx="1.5"/><rect x="13" y="29" width="14" height="6.5" rx="1.5"/><rect x="34" y="15" width="7" height="34" rx="1.5"/><rect x="34" y="29" width="13" height="6.5" rx="1.5"/></g><rect x="34" y="42" width="17" height="7" rx="1.5" class="m-ac"/></svg></div>
+    <div class="portrait"><img src="/fathy.jpg" alt="Fathy Elhadidy" width="500" height="600" loading="lazy"></div>
     <div class="about-body">
       <div class="eyebrow">About</div>
       <p>I'm Fathy, a web developer in Philadelphia. I build websites for local shops, nonprofits and community groups.</p>
@@ -382,7 +396,7 @@ footer a:hover { color: var(--ink); }
       <h2>Questions clients ask.</h2>
     </div>
     <div class="faq">
-      <details><summary>How much does a website cost?</summary><p>Every project gets a free quote based on what your site needs. You can start with a simple site and add an admin panel, online payments or automatic emails later, so you only pay for what you use.</p></details>
+      <details><summary>How much does a website cost?</summary><p>Sites start at $500, and every project gets a free quote based on what your site needs. You can start with a simple site and add an admin panel, online payments or automatic emails later, so you only pay for what you use.</p></details>
       <details><summary>How long does it take?</summary><p>About 1–2 weeks for a simple site, and about 3–6 weeks if it includes an admin panel or online payments.</p></details>
       <details><summary>Who owns the site?</summary><p>You own your domain and everything on your site: your text, photos and customer data. The site keeps running as long as you're on hosting &amp; maintenance. If you ever want to move it somewhere else, we'll work out a handover together.</p></details>
       <details><summary>What does hosting &amp; maintenance cover?</summary><p>I host your site, keep it updated and secure, and make small changes for you, all for one monthly fee. I make sure hosting stays affordable.</p></details>
@@ -413,7 +427,7 @@ footer a:hover { color: var(--ink); }
         <div class="field"><label for="f-budget">Budget <span class="opt">(optional)</span></label>
           <select id="f-budget" name="budget">
             <option value="">Not sure yet</option>
-            <option>Under $1,000</option>
+            <option>$500 – $1,000</option>
             <option>$1,000 – $3,000</option>
             <option>$3,000 – $7,500</option>
             <option>$7,500+</option>
@@ -447,43 +461,42 @@ footer a:hover { color: var(--ink); }
 </footer>
 
 <script>
+// shot: screenshot in public/work/. result/quote are optional.
 const projects = [
-  { name: "Egyptian Heritage", kind: "Community events", url: "egyptianheritage.net", link: "https://egyptianheritage.net/",
-    desc: "An events site the organizers update themselves, plus a page that brings in sponsors.",
-    tags: ["Events", "Sponsorships", "Self-managed"],
-    tint: "#C8A15A", tintInk: "#2A1D0C", headline: "Celebrate Egypt together.", cta: "See events",
+  { name: "Egyptian Heritage", kind: "Community events", url: "egyptianheritage.net", link: "https://egyptianheritage.net/", shot: "egyptian-heritage", tint: "#1B1B1B",
+    desc: "An events site for a community organization I co-founded. The organizers update it themselves, and a sponsor page brings in support.",
+    tags: ["Events", "Sponsorships", "English & Arabic"],
+    result: "Runs the full events calendar, from Eid tournaments to the Arab Cup 2026, in English and Arabic.",
+    quote: ["The site fits our style perfectly, and it has reached far more of the community than we ever expected.", "Egyptian Heritage"],
     admin: "Events", rows: [["Spring festival", "Published", 1], ["Sponsor inquiry", "New", 1], ["Film night", "Draft", 0]] },
-  { name: "Cafe Layl", kind: "Café", url: "cafelayl.net", link: "https://cafelayl.net",
+  { name: "Cafe Layl", kind: "Café", url: "cafelayl.net", link: "https://cafelayl.net", shot: "cafe-layl", tint: "#1E0B0E",
     desc: "A café site where guests book the space for private events, managed from the admin panel.",
     tags: ["Event booking", "Admin panel", "Email"],
-    tint: "#2A1F2D", tintInk: "#F4E9DC", headline: "Book your night at Layl.", cta: "Book an event",
+    result: "Event bookings come in through the site and are managed in one place.",
+    quote: ["Business is booming and we're more organized than ever. Fathy pushed us forward with every new feature, and the admin page is really easy to use.", "Cafe Layl"],
     admin: "Event requests", rows: [["Birthday · 20 guests", "Pending", 1], ["Engagement · 45", "Confirmed", 0], ["Study group · 8", "Pending", 1]] },
-  { name: "Phonetexs", kind: "Phone repair shop", url: "phonetexs.com", link: "https://phonetexs.com",
+  { name: "Phonetexs", kind: "Phone repair shop", url: "phonetexs.com", link: "https://phonetexs.com", shot: "phonetexs", tint: "#0B1020",
     desc: "Customers buy devices, book repairs, trade in old phones and pay online or at pickup.",
     tags: ["Bookings", "Stripe", "Sales tax", "Customer accounts"],
-    tint: "#1C2B4A", tintInk: "#F2F5FA", headline: "Cracked screen? Fixed today.", cta: "Book a repair",
+    result: "Sales, repairs, trade-ins and inventory all run through one system.",
+    quote: ["Having my whole business and inventory in one place has been a game changer.", "Phonetexs"],
     admin: "Repairs", rows: [["iPhone 15 · screen", "Today 2:30", 1], ["Galaxy S24 · battery", "Paid", 0], ["Pickup order #1042", "Ready", 1]] },
-  { name: "Amana Foundation", kind: "Nonprofit", url: "amana-foundation.fathyelhadedy.workers.dev", link: "https://amana-foundation.fathyelhadedy.workers.dev/",
+  { name: "Amana Foundation", kind: "Nonprofit", url: "amana-foundation.fathyelhadedy.workers.dev", link: "https://amana-foundation.fathyelhadedy.workers.dev/", shot: "amana-foundation", tint: "#18362C",
     desc: "A full rebuild of the foundation's site, with online donations and an admin portal.",
     tags: ["Donations", "PayPal", "Admin portal"],
-    tint: "#E9E2CF", tintInk: "#2E3A2A", headline: "Give where it matters most.", cta: "Donate",
     admin: "Donations", rows: [["$250 · Zakat", "Oct 3", 0], ["$50 · monthly", "Active", 1], ["Contact form", "New", 1]] },
-  { name: "CTG Tech", kind: "Device program", url: "ctg-tech.fathyelhadedy.workers.dev", link: "https://ctg-tech.fathyelhadedy.workers.dev/",
+  { name: "CTG Tech", kind: "Device program", url: "ctg-tech.fathyelhadedy.workers.dev", link: "https://ctg-tech.fathyelhadedy.workers.dev/", shot: "ctg-tech", tint: "#0B1A22",
     desc: "People apply for a device online, and staff review every application in an admin area.",
     tags: ["Applications", "Admin review", "Email alerts"],
-    tint: "#0F3D3A", tintInk: "#E6F4F1", headline: "Apply for a device.", cta: "Apply now",
+    result: "Takes device applications for families across 10+ partner locations in Philadelphia.",
     admin: "Applications", rows: [["Laptop request", "Review", 1], ["Tablet request", "Approved", 0], ["Laptop request", "Review", 1]] },
 ];
 
-const windowHTML = p => `
+const windowHTML = (p, lazy = true) => `
   <div class="win">
     <div class="bar"><i></i><i></i><i></i><div class="url">${p.url}</div></div>
-    <div class="screen" style="--tint:${p.tint};--tint-ink:${p.tintInk}">
-      <div class="view site">
-        <div class="top"><div class="brand">${p.name}</div><div class="links"><b></b><b></b><b></b></div></div>
-        <div class="heroblock"><strong>${p.headline}</strong><span>${p.cta}</span></div>
-        <div class="tiles"><b></b><b></b><b></b></div>
-      </div>
+    <div class="screen" style="--tint:${p.tint}">
+      <div class="view site"><img src="/work/${p.shot}.jpg" alt="${p.name} homepage" width="1200" height="750"${lazy ? ' loading="lazy"' : ""}></div>
       <div class="view admin" aria-hidden="true">
         <div class="side"><b></b><b></b><b></b><b></b></div>
         <div class="main"><h4>${p.admin}</h4>
@@ -505,6 +518,8 @@ projects.forEach((p, i) => {
       <h3>${p.name}</h3>
       <p>${p.desc}</p>
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
+      ${p.result ? `<p class="result"><strong>Result:</strong> ${p.result}</p>` : ""}
+      ${p.quote ? `<blockquote class="quote"><p>${p.quote[0]}</p><cite>— ${p.quote[1]}</cite></blockquote>` : ""}
       <div class="actions">
         <div class="toggle" role="group" aria-label="View for ${p.name}">
           <button type="button" aria-pressed="true">Site</button>
@@ -533,7 +548,7 @@ let current = 0, timer;
 const show = i => {
   current = i;
   const p = projects[i];
-  showWin.innerHTML = windowHTML(p);
+  showWin.innerHTML = windowHTML(p, false);
   document.getElementById("showcase-name").textContent = p.name;
   document.getElementById("showcase-kind").textContent = p.kind;
   [...dots.children].forEach((d, j) => d.setAttribute("aria-current", String(i === j)));
@@ -562,6 +577,13 @@ document.addEventListener("visibilitychange", () => document.hidden ? clearInter
 // Nav border once scrolled
 const nav = document.getElementById("nav");
 addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), { passive: true });
+
+// Mobile menu
+const menu = document.getElementById("menu");
+const setMenu = open => { nav.classList.toggle("open", open); menu.setAttribute("aria-expanded", String(open)); };
+menu.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+document.querySelectorAll("#nav-links a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); menu.focus(); } });
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
