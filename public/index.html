@@ -233,6 +233,13 @@ h3 { font-family: var(--display); font-weight: 700; font-size: clamp(24px, 3vw, 
 .direct small { font-family: var(--mono); font-size: 12px; opacity: .6; text-transform: uppercase; letter-spacing: .06em; }
 .email { font-family: var(--mono); font-size: clamp(14px, 2vw, 17px); text-decoration: none; word-break: break-all; }
 .email:hover { text-decoration: underline; }
+.calls { display: grid; gap: 10px; padding-block: 24px; border-top: 1px solid color-mix(in srgb, var(--p-fg) 18%, transparent); }
+.calls small { font-family: var(--mono); font-size: 12px; opacity: .6; text-transform: uppercase; letter-spacing: .06em; }
+.calls div { display: flex; flex-wrap: wrap; gap: 10px; }
+.call { display: grid; gap: 2px; padding: 12px 16px; border-radius: 12px; text-decoration: none; border: 1px solid color-mix(in srgb, var(--p-fg) 22%, transparent); flex: 1 1 160px; }
+.call:hover { border-color: var(--panel-accent); }
+.call strong { font: 600 15px var(--body); }
+.call span { font-size: 13px; opacity: .65; }
 .copy { justify-self: start; font: 600 13px var(--body); background: none; color: inherit; border: 1px solid color-mix(in srgb, var(--p-fg) 35%, transparent); padding: 7px 14px; border-radius: 999px; cursor: pointer; }
 .contact :focus-visible { outline-color: var(--panel-accent); }
 
@@ -423,6 +430,13 @@ footer .logo { color: var(--ink); }
       <div class="eyebrow">Contact</div>
       <h2>Need a website your team can run?</h2>
       <p>Tell me about your business and what you need the site to do. I'll reply within a day.</p>
+      <div class="calls">
+        <small>Prefer to talk?</small>
+        <div>
+          <a class="call" href="https://cal.com/fathy-elhadidy/15min" target="_blank" rel="noopener"><strong>15-min intro call ↗</strong><span>Free · tell me about your business</span></a>
+          <a class="call" href="https://cal.com/fathy-elhadidy/30min" target="_blank" rel="noopener"><strong>30-min project call ↗</strong><span>Free · walk through what you need</span></a>
+        </div>
+      </div>
       <div class="direct">
         <small>Prefer email?</small>
         <a class="email" id="email" href="mailto:info@fathyelhadidy.com">info@fathyelhadidy.com</a>
@@ -486,6 +500,7 @@ footer .logo { color: var(--ink); }
       <a class="foot-email" href="mailto:info@fathyelhadidy.com">info@fathyelhadidy.com</a>
       <span>Philadelphia, PA</span>
       <span>Replies within a day</span>
+      <a href="https://cal.com/fathy-elhadidy/15min" target="_blank" rel="noopener">Book a call ↗</a>
       <a href="#contact">Start a project →</a>
     </div>
   </div>
