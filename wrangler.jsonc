@@ -27,7 +27,7 @@
   ],
   // Secrets (RESEND_API_KEY) are set with `npx wrangler secret put`, never here.
   "vars": {
-    "RESEND_FROM_EMAIL": "Portfolio <onboarding@resend.dev>",
+    "RESEND_FROM_EMAIL": "Fathy Elhadidy <info@fathyelhadidy.com>",
     "CONTACT_TO_EMAIL": "fathyelhadedy@gmail.com"
   }
 }
