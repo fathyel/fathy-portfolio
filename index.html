@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fathy Elhadidy — Web Developer</title>
+<meta name="description" content="Websites small businesses run themselves. Fathy Elhadidy builds sites with their own admin panel for shops, nonprofits and community groups in Philadelphia.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2315191C'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='28' fill='%235CC49B'%3EFE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column. Statement up top, then client work as "browser windows" that flip between the public site and the owner's admin panel. */
+:root {
+  --bg: #EEF0EC;
+  --surface: #FFFFFF;
+  --ink: #15191C;
+  --muted: #5B6560;
+  --line: #D5DAD5;
+  --accent: #1E6B52;
+  --accent-ink: #FFFFFF;
+  --chip: #E1E7E2;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111513; --surface: #1A1F1C; --ink: #E8ECE9; --muted: #9AA59F;
+    --line: #2C3430; --accent: #5CC49B; --accent-ink: #0D1411; --chip: #232A26;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
+
+nav { display: flex; justify-content: space-between; align-items: center; padding-block: 22px; gap: 16px; flex-wrap: wrap; }
+.logo { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
+.logo span { color: var(--accent); }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
+nav a { color: var(--ink); text-decoration: none; }
+nav a:hover { color: var(--accent); }
+
+.hero { padding-block: 56px 48px; display: grid; gap: 24px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(38px, 6.4vw, 72px); line-height: 1.02; letter-spacing: -0.035em; margin: 0; max-width: 16ch; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--accent); }
+.lede { font-size: 19px; color: var(--muted); max-width: 56ch; margin: 0; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 12px 20px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: 15px; border: 1.5px solid var(--ink); color: var(--ink); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:focus-visible, .toggle button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.stack span { font-family: var(--mono); font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); }
+
+section { padding-block: 40px; }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; border-top: 1.5px solid var(--ink); padding-top: 14px; margin-bottom: 28px; }
+h2 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; margin: 0; }
+.sec-head p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 28px; }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+
+.project { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.win { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px -18px rgba(0,0,0,.35); }
+.bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+.bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.bar .url { margin-left: 10px; font-family: var(--mono); font-size: 11px; color: var(--muted); background: var(--chip); padding: 3px 10px; border-radius: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
+.screen { aspect-ratio: 16 / 10; max-width: 100%; position: relative; }
+.view { position: absolute; inset: 0; padding: 14px; display: grid; gap: 8px; transition: opacity .25s ease; }
+.view.admin { opacity: 0; pointer-events: none; }
+.project.show-admin .view.site { opacity: 0; }
+.project.show-admin .view.admin { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .view { transition: none; } }
+
+/* abstract site mock */
+.site { grid-template-rows: auto 1fr auto; background: var(--tint); }
+.site .top { display: flex; justify-content: space-between; align-items: center; }
+.site .brand { font-family: var(--display); font-weight: 800; font-size: 13px; color: var(--tint-ink); }
+.site .links { display: flex; gap: 6px; }
+.site .links b { width: 22px; height: 5px; border-radius: 3px; background: var(--tint-ink); opacity: .35; }
+.site .heroblock { display: grid; align-content: center; gap: 7px; }
+.site .heroblock strong { font-family: var(--display); font-size: clamp(15px, 2.3vw, 22px); line-height: 1.1; color: var(--tint-ink); max-width: 15ch; letter-spacing: -0.02em; }
+.site .heroblock span { display: inline-block; width: max-content; font-size: 10px; font-weight: 600; padding: 5px 10px; border-radius: 999px; background: var(--tint-ink); color: var(--tint); }
+.site .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.site .tiles b { height: 26px; border-radius: 5px; background: var(--tint-ink); opacity: .14; }
+
+/* abstract admin mock */
+.admin { grid-template-columns: 22% 1fr; background: var(--surface); padding: 0; gap: 0; }
+.admin .side { background: var(--chip); padding: 12px 10px; display: grid; align-content: start; gap: 7px; }
+.admin .side b { height: 6px; border-radius: 3px; background: var(--muted); opacity: .4; }
+.admin .side b:first-child { background: var(--accent); opacity: 1; }
+.admin .main { padding: 12px; display: grid; align-content: start; gap: 6px; min-width: 0; }
+.admin .main h4 { margin: 0 0 2px; font-family: var(--display); font-size: 12px; }
+.admin .row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; font-size: 10px; padding: 5px 7px; border: 1px solid var(--line); border-radius: 5px; font-family: var(--mono); color: var(--ink); white-space: nowrap; overflow: hidden; }
+.admin .row span { overflow: hidden; text-overflow: ellipsis; }
+.pill { font-size: 9px; padding: 2px 7px; border-radius: 999px; background: var(--chip); color: var(--muted); }
+.pill.go { background: var(--accent); color: var(--accent-ink); }
+
+.meta { display: grid; gap: 6px; }
+.meta-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+h3 { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.015em; margin: 0; }
+.kind { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.meta p { margin: 0; color: var(--muted); font-size: 15px; max-width: 52ch; }
+.visit { justify-self: start; font-weight: 600; font-size: 15px; color: var(--accent); text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 1px; }
+.visit:hover { color: var(--ink); }
+.visit:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: var(--chip); }
+
+.toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; background: var(--surface); }
+.toggle button { font: 500 12px var(--body); border: 0; background: none; color: var(--muted); padding: 4px 11px; border-radius: 999px; cursor: pointer; }
+.toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+
+.side-list { display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--line); }
+.side-list article { padding: 20px 20px 20px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; align-content: start; min-width: 0; }
+.side-list p { max-width: 60ch; margin: 0; color: var(--muted); font-size: 15px; }
+
+.ship { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 760px) { .ship { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ship div { display: grid; gap: 4px; align-content: start; }
+.ship strong { font-family: var(--display); font-size: 17px; }
+.ship span { color: var(--muted); font-size: 14px; }
+
+.custom { margin-top: 24px; padding: 20px 22px; border: 1.5px dashed var(--accent); border-radius: 12px; display: grid; gap: 6px; }
+.custom strong { font-family: var(--display); font-size: 19px; }
+.custom span { color: var(--muted); font-size: 15px; max-width: 62ch; }
+.custom .visit { margin-top: 4px; }
+.contact { background: var(--ink); color: var(--bg); border-radius: 14px; padding: clamp(24px, 5vw, 48px); display: grid; gap: 14px; margin-block: 24px 56px; }
+.contact h2 { font-size: clamp(28px, 4.5vw, 44px); max-width: 18ch; text-wrap: balance; }
+.contact p { margin: 0; opacity: .75; max-width: 50ch; }
+.email { font-family: var(--mono); font-size: clamp(15px, 2.4vw, 20px); color: inherit; text-decoration: none; word-break: break-all; justify-self: start; }
+.email:hover { text-decoration: underline; }
+.copy { justify-self: start; font: 600 14px var(--body); background: var(--accent); color: var(--accent-ink); border: 0; padding: 10px 18px; border-radius: 999px; cursor: pointer; }
+footer { padding-block: 0 40px; color: var(--muted); font-size: 13px; font-family: var(--mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="logo">Fathy Elhadidy<span>.</span></div>
+    <ul><li><a href="#work">Work</a></li><li><a href="#products">Side project</a></li><li><a href="#contact">Contact</a></li></ul>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">Web developer · Philadelphia</div>
+    <h1>Websites that small businesses <em>run themselves.</em></h1>
+    <p class="lede">I build sites for shops, nonprofits and community groups. Each one comes with its own admin panel, so the owner can take bookings, payments and donations without calling a developer.</p>
+    <div class="ctas"><a class="btn primary" href="#work">See the work</a><a class="btn" href="#contact">Start a project</a></div>
+    <div class="stack"><span>React</span><span>Next.js</span><span>Cloudflare</span><span>Stripe</span><span>Postgres</span></div>
+  </header>
+
+  <section id="work">
+    <div class="sec-head"><h2>Client work</h2><p>Switch any project to <strong>Admin</strong> to see what the owner gets.</p></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="products">
+    <div class="sec-head"><h2>Side project</h2><p>Something I built for myself.</p></div>
+    <div class="side-list">
+      <article><span class="kind">Board game</span><h3>Obelisk</h3><p>A stone-tile puzzle game for web, iOS and Android. Play at one table or online with a room code.</p><a class="visit" href="https://obelisk-game.vercel.app/" target="_blank" rel="noopener">Play the game ↗</a></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What every site comes with</h2></div>
+    <div class="ship">
+      <div><strong>Admin panel</strong><span>Edit content, manage orders and answer messages.</span></div>
+      <div><strong>Online payments</strong><span>Stripe checkout, sales tax and refunds.</span></div>
+      <div><strong>Email</strong><span>Confirmations and alerts go out on their own.</span></div>
+      <div><strong>Cheap hosting</strong><span>Runs on Cloudflare, usually for a few dollars a month.</span></div>
+    </div>
+    <div class="custom">
+      <strong>Need something else?</strong>
+      <span>Every business works differently. Whatever your site needs, from online menus to memberships to a feature nobody else has, tell me and I'll build it.</span>
+      <a class="visit" href="#contact">Ask about a custom request</a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="eyebrow">Contact</div>
+    <h2>Need a website your team can run?</h2>
+    <p>Tell me about your business and what you need the site to do. I'll reply within a day.</p>
+    <a class="email" id="email" href="mailto:fathyelhadedy@gmail.com">fathyelhadedy@gmail.com</a>
+    <button class="copy" id="copy" type="button">Copy email</button>
+  </section>
+
+  <footer>© <span id="year">2026</span> Fathy Elhadidy</footer>
+</div>
+
+<script>
+const projects = [
+  { name: "Phonetexs", kind: "Phone repair shop", url: "phonetexs.com", link: "https://phonetexs.com",
+    desc: "Customers buy devices, book repairs, trade in old phones and pay online or at pickup.",
+    tags: ["Bookings", "Stripe", "Sales tax", "Customer accounts"],
+    tint: "#1C2B4A", tintInk: "#F2F5FA", headline: "Cracked screen? Fixed today.", cta: "Book a repair",
+    admin: "Repairs", rows: [["iPhone 15 · screen", "Today 2:30", 1], ["Galaxy S24 · battery", "Paid", 0], ["Pickup order #1042", "Ready", 1]] },
+  { name: "Amana Foundation", kind: "Nonprofit", url: "amana-foundation.fathyelhadedy.workers.dev", link: "https://amana-foundation.fathyelhadedy.workers.dev/",
+    desc: "A full rebuild of the foundation's site, with online donations and an admin portal.",
+    tags: ["Donations", "PayPal", "Admin portal"],
+    tint: "#E9E2CF", tintInk: "#2E3A2A", headline: "Give where it matters most.", cta: "Donate",
+    admin: "Donations", rows: [["$250 · Zakat", "Oct 3", 0], ["$50 · monthly", "Active", 1], ["Contact form", "New", 1]] },
+  { name: "CTG Tech", kind: "Device program", url: "ctg-tech.fathyelhadedy.workers.dev", link: "https://ctg-tech.fathyelhadedy.workers.dev/",
+    desc: "People apply for a device online, and staff review every application in an admin area.",
+    tags: ["Applications", "Admin review", "Email alerts"],
+    tint: "#0F3D3A", tintInk: "#E6F4F1", headline: "Apply for a device.", cta: "Apply now",
+    admin: "Applications", rows: [["Laptop request", "Review", 1], ["Tablet request", "Approved", 0], ["Laptop request", "Review", 1]] },
+  { name: "Egyptian Heritage", kind: "Community events", url: "egyptianheritage.net", link: "https://egyptianheritage.net/",
+    desc: "An events site the organizers update themselves, plus a page that brings in sponsors.",
+    tags: ["Events", "Sponsorships", "Self-managed"],
+    tint: "#C8A15A", tintInk: "#2A1D0C", headline: "Celebrate Egypt together.", cta: "See events",
+    admin: "Events", rows: [["Spring festival", "Published", 1], ["Sponsor inquiry", "New", 1], ["Film night", "Draft", 0]] },
+  { name: "Cafe Layl", kind: "Café", url: "cafelayl.net", link: "https://cafelayl.net",
+    desc: "A café site where guests book the space for private events, managed from the admin panel.",
+    tags: ["Event booking", "Admin panel", "Email"],
+    tint: "#2A1F2D", tintInk: "#F4E9DC", headline: "Book your night at Layl.", cta: "Book an event",
+    admin: "Event requests", rows: [["Birthday · 20 guests", "Pending", 1], ["Engagement · 45", "Confirmed", 0], ["Study group · 8", "Pending", 1]] },
+];
+
+const grid = document.getElementById("grid");
+projects.forEach((p, i) => {
+  const el = document.createElement("article");
+  el.className = "project";
+  el.innerHTML = `
+    <div class="win">
+      <div class="bar"><i></i><i></i><i></i><div class="url">${p.url}</div></div>
+      <div class="screen" style="--tint:${p.tint};--tint-ink:${p.tintInk}">
+        <div class="view site">
+          <div class="top"><div class="brand">${p.name}</div><div class="links"><b></b><b></b><b></b></div></div>
+          <div class="heroblock"><strong>${p.headline}</strong><span>${p.cta}</span></div>
+          <div class="tiles"><b></b><b></b><b></b></div>
+        </div>
+        <div class="view admin" aria-hidden="true">
+          <div class="side"><b></b><b></b><b></b><b></b></div>
+          <div class="main"><h4>${p.admin}</h4>
+            ${p.rows.map(r => `<div class="row"><span>${r[0]}</span><span class="pill ${r[2] ? "go" : ""}">${r[1]}</span></div>`).join("")}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="meta">
+      <div class="meta-top"><span class="kind">${p.kind}</span>
+        <div class="toggle" role="group" aria-label="View for ${p.name}">
+          <button type="button" aria-pressed="true">Site</button>
+          <button type="button" aria-pressed="false">Admin</button>
+        </div>
+      </div>
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
+      <a class="visit" href="${p.link}" target="_blank" rel="noopener">Visit site ↗</a>
+    </div>`;
+  const [siteBtn, adminBtn] = el.querySelectorAll(".toggle button");
+  const set = admin => {
+    el.classList.toggle("show-admin", admin);
+    siteBtn.setAttribute("aria-pressed", String(!admin));
+    adminBtn.setAttribute("aria-pressed", String(admin));
+  };
+  siteBtn.onclick = () => set(false);
+  adminBtn.onclick = () => set(true);
+  grid.appendChild(el);
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("copy").addEventListener("click", e => {
+  const btn = e.currentTarget, text = document.getElementById("email").textContent;
+  const done = () => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy email", 1600); };
+  const select = () => {
+    const r = document.createRange(); r.selectNodeContents(document.getElementById("email"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  };
+  navigator.clipboard ? navigator.clipboard.writeText(text).then(done, select) : select();
+});
+</script>
+</body>
+</html>
