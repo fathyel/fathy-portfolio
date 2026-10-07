@@ -105,6 +105,7 @@ h1 em { font-style: normal; color: var(--accent); }
 
 .showcase { position: relative; }
 .showcase::before { content: ""; position: absolute; inset: 8% -4% -6% 10%; background: var(--accent-soft); border-radius: 28px; z-index: -1; }
+@media (max-width: 900px) { .showcase::before { right: -12px; } }
 .showcase .caption { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 14px; color: var(--muted); gap: 12px; }
 .showcase .caption strong { color: var(--ink); font-family: var(--display); font-size: 16px; }
 .dots { display: flex; gap: 6px; }
