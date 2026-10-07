@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fathy-portfolio",
+  // Serves public/ as static files. Only /api/* runs the worker first —
+  // see src/worker.js.
+  "main": "src/worker.js",
+  "compatibility_date": "2026-07-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  // Contact form: at most 5 submissions per minute per IP.
+  "ratelimits": [
+    {
+      "name": "CONTACT_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 5, "period": 60 }
+    }
+  ],
+  // Secrets (RESEND_API_KEY) are set with `npx wrangler secret put`, never here.
+  "vars": {
+    "RESEND_FROM_EMAIL": "Portfolio <onboarding@resend.dev>",
+    "CONTACT_TO_EMAIL": "fathyelhadedy@gmail.com"
+  }
+}
