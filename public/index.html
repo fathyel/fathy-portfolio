@@ -268,10 +268,21 @@ form[hidden] { display: none; }
 .thanks p { margin: 0; opacity: .75; }
 .thanks[hidden] { display: none; }
 
-footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 0 40px; color: var(--muted); font-size: 13px; font-family: var(--mono); }
-footer a { text-decoration: none; }
-.foot-links { display: flex; gap: 24px; }
+footer { border-top: 1px solid var(--line); }
+footer a { text-decoration: none; color: var(--muted); }
 footer a:hover { color: var(--ink); }
+footer .logo { color: var(--ink); }
+.foot-main { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 40px 32px; padding-block: 56px 40px; }
+@media (max-width: 860px) { .foot-main { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-brand { grid-column: 1 / -1; } }
+@media (max-width: 420px) { .foot-main .foot-col:last-child { grid-column: 1 / -1; } }
+.foot-brand { display: grid; gap: 14px; align-content: start; max-width: 36ch; }
+.foot-brand p { margin: 0; color: var(--muted); font-size: 15px; }
+.foot-col { display: grid; gap: 10px; align-content: start; font-size: 15px; }
+.foot-col h4 { margin: 0 0 4px; font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.foot-col span { color: var(--muted); }
+.foot-col .foot-email { color: var(--accent); font-weight: 600; word-break: break-all; }
+.foot-bar { display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; padding-block: 20px 36px; border-top: 1px solid var(--line); color: var(--muted); font: 13px var(--mono); }
+.foot-links { display: flex; gap: 24px; }
 </style>
 </head>
 <body>
@@ -414,7 +425,7 @@ footer a:hover { color: var(--ink); }
       <p>Tell me about your business and what you need the site to do. I'll reply within a day.</p>
       <div class="direct">
         <small>Prefer email?</small>
-        <a class="email" id="email" href="mailto:fathyelhadedy@gmail.com">fathyelhadedy@gmail.com</a>
+        <a class="email" id="email" href="mailto:info@fathyelhadidy.com">info@fathyelhadidy.com</a>
         <button class="copy" id="copy" type="button">Copy email</button>
       </div>
     </div>
@@ -457,7 +468,28 @@ footer a:hover { color: var(--ink); }
 </div>
 
 <footer>
-  <div class="wrap"><span>© <span id="year">2026</span> Fathy Elhadidy</span><span class="foot-links"><a href="https://github.com/fathyel" target="_blank" rel="noopener">GitHub ↗</a><a href="#top">Back to top ↑</a></span></div>
+  <div class="wrap foot-main">
+    <div class="foot-brand">
+      <a class="logo" href="#top"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" class="m-bg"/><g class="m-fg"><rect x="13" y="15" width="38" height="7" rx="1.5"/><rect x="13" y="15" width="7" height="34" rx="1.5"/><rect x="13" y="29" width="14" height="6.5" rx="1.5"/><rect x="34" y="15" width="7" height="34" rx="1.5"/><rect x="34" y="29" width="13" height="6.5" rx="1.5"/></g><rect x="34" y="42" width="17" height="7" rx="1.5" class="m-ac"/></svg><span>Fathy Elhadidy<b>.</b></span></a>
+      <p>Websites that small businesses run themselves. Built in Philadelphia for shops, nonprofits and community groups.</p>
+    </div>
+    <nav class="foot-col" aria-label="Footer">
+      <h4>Explore</h4>
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <span>Websites</span><span>Admin panels</span><span>Online payments</span><span>Hosting &amp; maintenance</span>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a class="foot-email" href="mailto:info@fathyelhadidy.com">info@fathyelhadidy.com</a>
+      <span>Philadelphia, PA</span>
+      <span>Replies within a day</span>
+      <a href="#contact">Start a project →</a>
+    </div>
+  </div>
+  <div class="wrap foot-bar"><span>© <span id="year">2026</span> Fathy Elhadidy. All rights reserved.</span><span class="foot-links"><a href="https://github.com/fathyel" target="_blank" rel="noopener">GitHub ↗</a><a href="#top">Back to top ↑</a></span></div>
 </footer>
 
 <script>
