@@ -350,6 +350,16 @@ footer a:hover { color: var(--ink); }
 
 <script>
 const projects = [
+  { name: "Egyptian Heritage", kind: "Community events", url: "egyptianheritage.net", link: "https://egyptianheritage.net/",
+    desc: "An events site the organizers update themselves, plus a page that brings in sponsors.",
+    tags: ["Events", "Sponsorships", "Self-managed"],
+    tint: "#C8A15A", tintInk: "#2A1D0C", headline: "Celebrate Egypt together.", cta: "See events",
+    admin: "Events", rows: [["Spring festival", "Published", 1], ["Sponsor inquiry", "New", 1], ["Film night", "Draft", 0]] },
+  { name: "Cafe Layl", kind: "Café", url: "cafelayl.net", link: "https://cafelayl.net",
+    desc: "A café site where guests book the space for private events, managed from the admin panel.",
+    tags: ["Event booking", "Admin panel", "Email"],
+    tint: "#2A1F2D", tintInk: "#F4E9DC", headline: "Book your night at Layl.", cta: "Book an event",
+    admin: "Event requests", rows: [["Birthday · 20 guests", "Pending", 1], ["Engagement · 45", "Confirmed", 0], ["Study group · 8", "Pending", 1]] },
   { name: "Phonetexs", kind: "Phone repair shop", url: "phonetexs.com", link: "https://phonetexs.com",
     desc: "Customers buy devices, book repairs, trade in old phones and pay online or at pickup.",
     tags: ["Bookings", "Stripe", "Sales tax", "Customer accounts"],
@@ -365,16 +375,6 @@ const projects = [
     tags: ["Applications", "Admin review", "Email alerts"],
     tint: "#0F3D3A", tintInk: "#E6F4F1", headline: "Apply for a device.", cta: "Apply now",
     admin: "Applications", rows: [["Laptop request", "Review", 1], ["Tablet request", "Approved", 0], ["Laptop request", "Review", 1]] },
-  { name: "Egyptian Heritage", kind: "Community events", url: "egyptianheritage.net", link: "https://egyptianheritage.net/",
-    desc: "An events site the organizers update themselves, plus a page that brings in sponsors.",
-    tags: ["Events", "Sponsorships", "Self-managed"],
-    tint: "#C8A15A", tintInk: "#2A1D0C", headline: "Celebrate Egypt together.", cta: "See events",
-    admin: "Events", rows: [["Spring festival", "Published", 1], ["Sponsor inquiry", "New", 1], ["Film night", "Draft", 0]] },
-  { name: "Cafe Layl", kind: "Café", url: "cafelayl.net", link: "https://cafelayl.net",
-    desc: "A café site where guests book the space for private events, managed from the admin panel.",
-    tags: ["Event booking", "Admin panel", "Email"],
-    tint: "#2A1F2D", tintInk: "#F4E9DC", headline: "Book your night at Layl.", cta: "Book an event",
-    admin: "Event requests", rows: [["Birthday · 20 guests", "Pending", 1], ["Engagement · 45", "Confirmed", 0], ["Study group · 8", "Pending", 1]] },
 ];
 
 const windowHTML = p => `
